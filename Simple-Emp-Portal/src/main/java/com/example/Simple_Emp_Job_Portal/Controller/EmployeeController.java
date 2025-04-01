@@ -33,9 +33,15 @@ public class EmployeeController {
               if (employee.isPresent()) {
                   employee.get().setName("");
                   employee.get().setRole("");
-              }else {
+              }else{
                   System.out.println("Employee with the id of " + empId + "not found");
               }
               return employee;
+        }
+
+    @DeleteMapping("/delete/{empId}")
+    @Secured("ADMIN")
+    public void deleteEmployeeById(@PathVariable(value = "id") long empId) {
+            empRepo.deleteById(empId);
         }
     }

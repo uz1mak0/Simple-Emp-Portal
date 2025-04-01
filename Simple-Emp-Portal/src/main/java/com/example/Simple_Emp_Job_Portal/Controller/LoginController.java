@@ -26,6 +26,11 @@ public class LoginController {
         return new ResponseEntity<>(saveUser, HttpStatus.CREATED);
     }
 
+    @GetMapping("/loggedIn")
+    public String userLoggedIn() {
+        return "You're successfully LoggedIn!";
+    }
+
     @GetMapping("/user/{id}")
     @PreAuthorize("hasAnyRole('USER')")
     public Optional<Login> getUserById(@PathVariable(value = "id") long id) {

@@ -14,6 +14,7 @@ public class Registration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "username cannot be empty")
     private String username;
 
